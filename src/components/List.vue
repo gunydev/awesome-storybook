@@ -22,22 +22,24 @@ const props = defineProps({
     },
 })
 
-watch(
-    () => props.list,
-    (val) => {
-        props.lists.push(val)
-    }
-)
-
 const fontClass = computed(() => {
     return `list__font-size--${props.fontSize}`
 })
 </script>
 
 <template>
-    <TransitionGroup class="list" v-for="(list, index) in lists" tag="ul" name="list">
-        <li :class="fontClass" v-if="!lists.length">@ something that you want to do ⚡️</li>
-        <li :key="index" :class="fontClass" :style="`color: ${fontColor}`">{{ list }}</li>
+    <TransitionGroup class="list" tag="ul" name="fade">
+        <li
+            class="text-center"
+            :class="fontClass"
+            v-if="!lists.length"
+        >@ something that you want to do ⚡️</li>
+        <li
+            v-for="(list, index) in lists"
+            :key="list"
+            :class="fontClass"
+            :style="`color: ${fontColor}`"
+        >{{ list  }}</li>
     </TransitionGroup>
 </template>
 
