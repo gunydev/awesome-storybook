@@ -1,0 +1,26 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & input {
+        width: 200px;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        background: rgb(247, 247, 247);
+        outline: none;
+    }
+    &__font-size {
+        &--small {
+            font-size: 10px;
+        }
+        &--medium {
+            font-size: 16px;
+        }
+        &--large {
+            font-size: 22px;
+        }
+    }
+}
